@@ -13,13 +13,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {!splashDone && <SplashScreen onDone={handleSplashDone} />}
-      <div
-        className={`transition-opacity duration-500 ${
-          splashDone ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {children}
-      </div>
+      {children}
     </>
   );
 }

@@ -6,13 +6,13 @@ export function SplashScreen({ onDone }: { onDone: () => void }) {
   const [phase, setPhase] = useState<"letters" | "expand" | "done">("letters");
 
   useEffect(() => {
-    // Phase 1: Letters animate in (0 → 1.8s)
-    // Phase 2: Expand/fade out (1.8s → 2.8s)
-    const t1 = setTimeout(() => setPhase("expand"), 1800);
+    // Phase 1: Letters & tagline animate in (0 → 1.5s)
+    // Phase 2: Smooth fade out overlay directly revealing page (1.5s → 1.9s)
+    const t1 = setTimeout(() => setPhase("expand"), 1500);
     const t2 = setTimeout(() => {
       setPhase("done");
       onDone();
-    }, 2800);
+    }, 1900);
 
     return () => {
       clearTimeout(t1);
@@ -24,8 +24,8 @@ export function SplashScreen({ onDone }: { onDone: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-ink transition-opacity duration-700 ${
-        phase === "expand" ? "opacity-0 scale-105" : "opacity-100"
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-ink transition-all duration-400 ease-out ${
+        phase === "expand" ? "opacity-0 pointer-events-none scale-[1.02]" : "opacity-100"
       }`}
       style={{ transformOrigin: "center center" }}
     >
@@ -40,7 +40,7 @@ export function SplashScreen({ onDone }: { onDone: () => void }) {
             className="splash-letter font-display font-black text-fog"
             style={{
               fontSize: "clamp(5rem, 18vw, 14rem)",
-              animationDelay: `${i * 0.25}s`,
+              animationDelay: `${i * 0.2}s`,
               lineHeight: 1,
             }}
           >
@@ -52,13 +52,13 @@ export function SplashScreen({ onDone }: { onDone: () => void }) {
       {/* Subtle underline that draws in */}
       <div
         className="splash-line mt-4 h-[3px] rounded-full bg-[#e31c23]"
-        style={{ animationDelay: "0.9s" }}
+        style={{ animationDelay: "0.7s" }}
       />
 
       {/* Tagline fades in */}
       <p
         className="splash-tagline mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-fog/60 md:text-sm"
-        style={{ animationDelay: "1.1s" }}
+        style={{ animationDelay: "0.9s" }}
       >
         Engineers Without Borders
       </p>
