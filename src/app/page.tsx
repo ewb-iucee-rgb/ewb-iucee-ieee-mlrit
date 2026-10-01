@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — brand-first, full-bleed with decorative EWB lettermark */}
-      <section className="relative min-h-[100svh] overflow-hidden bg-ink text-fog">
+      <section className="relative min-h-[80svh] overflow-hidden bg-ink text-fog md:min-h-[100svh]">
         {/* Decorative huge EWB letters in background */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none">
           <span
@@ -31,13 +31,13 @@ export default function HomePage() {
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-ink to-transparent" />
 
         {/* Content */}
-        <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-20 pt-28 md:justify-center md:px-8 md:pb-24 md:pt-32">
+        <div className="relative mx-auto flex min-h-[80svh] max-w-6xl flex-col justify-end px-5 pb-12 pt-28 md:min-h-[100svh] md:justify-center md:px-8 md:pb-24 md:pt-32">
           {/* Main heading — EWB-IUCEE-IEEE MLRIT big, STUDENT CHAPTER BODY small */}
           <h1 className="fade-up mt-5 font-display font-black uppercase leading-[0.95] tracking-tight text-fog">
-            <span className="block text-[clamp(2.8rem,8vw,6.5rem)]">
+            <span className="block text-[clamp(2rem,8vw,6.5rem)] md:text-[clamp(2.8rem,8vw,6.5rem)]">
               EWB-IUCEE-IEEE
             </span>
-            <span className="block text-[clamp(2.8rem,8vw,6.5rem)] text-[#e31c23]">
+            <span className="block text-[clamp(2rem,8vw,6.5rem)] text-[#e31c23] md:text-[clamp(2.8rem,8vw,6.5rem)]">
               MLRIT
             </span>
             <span className="mt-3 block text-[clamp(0.85rem,2vw,1.5rem)] font-semibold tracking-[0.18em] text-fog/75">
