@@ -298,7 +298,7 @@ export const team = [
     name: "P. Sandrasindhu",
     role: "Chapter Ambassador",
     short: "SS",
-    photo: "/team/4years/sindhu.jpg",
+    photo: "/team/4years/sindhu.JPG",
     email: "sindhupanyala@gmail.com",
     linkedin: "https://www.linkedin.com/in/sandra-sindhu-reddy-panyala",
   },
@@ -465,10 +465,10 @@ export const studentMembers: StudentMember[] = [
   { name: "Satvik Reddy", year: "II", branch: "CSM", department: "Video Editing", short: initials("Satvik Reddy"), photo: "/team/2years/satvik.jpg" },
   { name: "B Sai charan", year: "II", branch: "CSM", department: "Video Editing", short: initials("B Sai charan"), photo: "/team/2years/sai.jpg" },
   { name: "Mekapothula Shiva manikanta", year: "II", branch: "CSM", department: "Video Editing", short: initials("Mekapothula Shiva manikanta"), photo: "/team/2years/shiva .jpg" },
-  { name: "M. vivek", year: "II", branch: "CSM", department: "Videography", short: initials("M. vivek"), photo: "/team/vivek.JPG" },
-  { name: "Y. Ramya", year: "II", branch: "CSM", department: "Graphic", short: initials("Y. Ramya"), photo: "/team/Ramya.jpg" },
-  { name: "Harinivas", year: "II", branch: "MECH", department: "Content", short: initials("Harinivas"), photo: "/team/HARINIVAS.jpg" },
-  { name: "R. Venkatesh", year: "II", branch: "MECH", department: "Videography", short: initials("R. Venkatesh"), photo: "/team/VENKATESH.jpeg" },
+  { name: "M. vivek", year: "II", branch: "CSM", department: "Videography", short: initials("M. vivek"), photo: "/team/2years/vivek.JPG" },
+  { name: "Y. Ramya", year: "II", branch: "CSM", department: "Graphic", short: initials("Y. Ramya"), photo: "/team/2years/Ramya.jpg" },
+  { name: "Harinivas", year: "II", branch: "MECH", department: "Content", short: initials("Harinivas"), photo: "/team/2years/HARINIVAS.jpg" },
+  { name: "R. Venkatesh", year: "II", branch: "MECH", department: "Videography", short: initials("R. Venkatesh"), photo: "/team/2years/VENKATESH.jpeg" },
 ];
 
 export const facultyAdvisor = {
