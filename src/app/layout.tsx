@@ -4,14 +4,34 @@ import { Header } from "@/components/Header";
 import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
+
 export const metadata: Metadata = {
-  title: "EWB-IUCEE-IEEE MLRIT | Engineering for Impact",
+  title: "EWB IUCEE IEEE MLRIT | Student Chapter",
 
   description:
-    "EWB-IUCEE-IEEE student engineering chapter at MLRIT – building practical, sustainable hardware solutions for real communities.",
+    "Explore EWB-IUCEE-IEEE MLRIT, a student chapter promoting engineering innovation, sustainability, community engagement, and real-world projects.",
+
+  keywords: [
+    "EWB MLRIT",
+    "IUCEE MLRIT",
+    "IEEE MLRIT",
+    "Engineers Without Borders MLRIT",
+    "MLRIT Student Chapter",
+    "Engineering Projects",
+    "Sustainable Engineering",
+  ],
 
   verification: {
     google: "-2xFbxT42jvYfe3u3rKJLQtTj1bO_f0ulYDnGUyIRwg",
+  },
+
+  openGraph: {
+    title: "EWB IUCEE IEEE MLRIT",
+    description:
+      "Engineering for impact. Innovating for a sustainable future.",
+    url: "https://ewb-iucee-ieee-mlrit.vercel.app/",
+    siteName: "EWB IUCEE IEEE MLRIT",
+    type: "website",
   },
 
   icons: {
