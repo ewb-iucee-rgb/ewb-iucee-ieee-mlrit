@@ -463,7 +463,7 @@ export const studentMembers: StudentMember[] = [
   { name: "Rakshitha. G", year: "II", branch: "CSM", department: "Graphic", short: initials("Rakshitha. G"), photo: "/team/2years/Rakshitha_.png" },
   { name: "Kotagiri Sri Charan", year: "II", branch: "CSM", department: "Photography", short: initials("Kotagiri Sri Charan"), photo: "/team/2years/sri.png" },
   { name: "Satvik Reddy", year: "II", branch: "CSM", department: "Video Editing", short: initials("Satvik Reddy"), photo: "/team/2years/satvik.jpg" },
-  { name: "B Sai charan", year: "II", branch: "CSM", department: "Video Editing", short: initials("B Sai charan"), photo: "/team/2years/sai.jpg" },
+  { name: "B Sai charan", year: "II", branch: "CSM", department: "Video Editing", short: initials("B Sai charan"), photo: "/team/2years/sai.jpeg" },
   { name: "Mekapothula Shiva manikanta", year: "II", branch: "CSM", department: "Video Editing", short: initials("Mekapothula Shiva manikanta"), photo: "/team/2years/shiva .jpg" },
   { name: "M. vivek", year: "II", branch: "CSM", department: "Videography", short: initials("M. vivek"), photo: "/team/2years/vivek.JPG" },
   { name: "Y. Ramya", year: "II", branch: "CSM", department: "Graphic", short: initials("Y. Ramya"), photo: "/team/2years/Ramya.jpg" },
