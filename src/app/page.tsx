@@ -54,7 +54,7 @@ export default function HomePage() {
               href="/projects"
               className="inline-flex items-center justify-center rounded-md bg-amber px-6 py-3.5 text-sm font-semibold text-ink transition hover:bg-amber-soft"
             >
-              See our projects
+              Our projects
             </Link>
             <Link
               href="/about"
