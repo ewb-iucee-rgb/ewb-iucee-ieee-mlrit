@@ -581,8 +581,8 @@ export const journeyPhases = [
 export const upcomingEvents = [
   {
     title: "IEEE Day 2026",
-    date: "Coming soon",
-    location: "To be announced",
+    date: "6 October 2026",
+    location: "MLR Institute of Technology, Hyderabad",
     tagline: "Engineering. Medicine. Standards. Together.",
     body: "Celebrating IEEE Day with expert talks, interdisciplinary learning, and the convergence of engineering and technology.",
   },

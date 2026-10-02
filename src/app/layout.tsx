@@ -6,8 +6,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "EWB-IUCEE-IEEE MLRIT | Engineering for Impact",
+
   description:
-    "EWB-IUCEE-IEEE student engineering chapter at MLRIT — building practical, sustainable hardware solutions for real communities.",
+    "EWB-IUCEE-IEEE student engineering chapter at MLRIT – building practical, sustainable hardware solutions for real communities.",
+
+  verification: {
+    google: "-2xFbxT42jvYfe3u3rKJLQtTj1bO_f0ulYDnGUyIRwg",
+  },
+
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
