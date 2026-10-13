@@ -77,6 +77,26 @@ export function EventAlert({ splashDone = true }: EventAlertProps) {
     return () => clearTimeout(timer);
   }, [splashDone]);
 
+  // Lock background body scroll when modal alert is open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      const originalPaddingRight = document.body.style.paddingRight;
+      const scrollBarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+
+      if (scrollBarWidth > 0) {
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
+      }
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        document.body.style.paddingRight = originalPaddingRight;
+      };
+    }
+  }, [isOpen]);
+
   // Handle Escape key to close
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -113,7 +133,7 @@ export function EventAlert({ splashDone = true }: EventAlertProps) {
           aria-modal="true"
           aria-labelledby="event-alert-title"
           aria-describedby="event-alert-desc"
-          className="fixed inset-0 z-[10000] flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-6"
         >
           {/* Backdrop with soft blur */}
           <div
@@ -123,7 +143,7 @@ export function EventAlert({ splashDone = true }: EventAlertProps) {
           />
 
           {/* Modal Container */}
-          <div className="relative w-full max-w-[500px] overflow-hidden rounded-3xl border border-fog/15 bg-ink/95 p-6 text-fog shadow-[0_24px_80px_rgba(12,22,18,0.7)] backdrop-blur-2xl ring-1 ring-fog/10 transition-all duration-300 sm:p-7 animate-in fade-in zoom-in-95">
+          <div className="relative flex max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] w-full max-w-[500px] flex-col overflow-hidden rounded-3xl border border-fog/15 bg-ink/95 text-fog shadow-[0_24px_80px_rgba(12,22,18,0.7)] backdrop-blur-2xl ring-1 ring-fog/10 transition-all duration-300 animate-in fade-in zoom-in-95">
             {/* Subtle Ambient Brand Glows */}
             <div
               className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-forest/25 blur-[100px]"
@@ -134,12 +154,12 @@ export function EventAlert({ splashDone = true }: EventAlertProps) {
               aria-hidden="true"
             />
 
-            {/* Close Button */}
+            {/* Close Button - Stays easily accessible at top-right */}
             <button
               type="button"
               onClick={handleClose}
               aria-label="Close announcement"
-              className="group absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-fog/15 bg-fog/5 text-fog/60 transition-all duration-200 hover:scale-105 hover:border-fog/30 hover:bg-fog/10 hover:text-fog focus:outline-none focus:ring-2 focus:ring-leaf/50"
+              className="group absolute right-3.5 top-3.5 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-fog/15 bg-ink/80 text-fog/60 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-fog/30 hover:bg-fog/15 hover:text-fog focus:outline-none focus:ring-2 focus:ring-leaf/50"
             >
               <svg className="h-4 w-4 transition-transform group-hover:rotate-90 duration-200" viewBox="0 0 20 20" fill="currentColor">
                 <path
@@ -150,20 +170,22 @@ export function EventAlert({ splashDone = true }: EventAlertProps) {
               </svg>
             </button>
 
-            {/* Top Badges */}
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-amber/30 bg-amber/15 px-3 py-1 text-xs font-semibold text-amber-soft">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-soft opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-soft" />
+            {/* Scrollable Content Container */}
+            <div className="custom-scrollbar relative z-10 flex-1 overflow-y-auto overscroll-contain p-5 sm:p-7">
+              {/* Top Badges */}
+              <div className="flex items-center gap-2 pr-10">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-amber/30 bg-amber/15 px-3 py-1 text-xs font-semibold text-amber-soft">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-soft opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-soft" />
+                  </span>
+                  Early Bird Offer Live
                 </span>
-                Early Bird Offer Live
-              </span>
 
-              <span className="inline-flex items-center gap-1 rounded-full border border-leaf/30 bg-leaf/15 px-2.5 py-1 text-xs font-semibold text-leaf">
-                Save ₹60
-              </span>
-            </div>
+                <span className="inline-flex items-center gap-1 rounded-full border border-leaf/30 bg-leaf/15 px-2.5 py-1 text-xs font-semibold text-leaf">
+                  Save ₹60
+                </span>
+              </div>
 
             {/* Event Header */}
             <div className="mt-3.5">
@@ -312,23 +334,24 @@ export function EventAlert({ splashDone = true }: EventAlertProps) {
               </Link>
             </div>
 
-            {/* Footer Utilities */}
-            <div className="mt-3.5 flex items-center justify-between text-xs text-fog/50">
-              <button
-                type="button"
-                onClick={handleCopyLink}
-                className="inline-flex items-center gap-1.5 hover:text-leaf transition"
-              >
-                <span>{copied ? "✓ Copied Link!" : "🔗 Copy Registration Link"}</span>
-              </button>
+              {/* Footer Utilities */}
+              <div className="mt-3.5 flex items-center justify-between text-xs text-fog/50">
+                <button
+                  type="button"
+                  onClick={handleCopyLink}
+                  className="inline-flex items-center gap-1.5 hover:text-leaf transition"
+                >
+                  <span>{copied ? "✓ Copied Link!" : "🔗 Copy Registration Link"}</span>
+                </button>
 
-              <button
-                type="button"
-                onClick={handleClose}
-                className="hover:text-fog/80 transition underline underline-offset-4"
-              >
-                Dismiss &amp; continue
-              </button>
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="hover:text-fog/80 transition underline underline-offset-4"
+                >
+                  Dismiss &amp; continue
+                </button>
+              </div>
             </div>
           </div>
         </div>
