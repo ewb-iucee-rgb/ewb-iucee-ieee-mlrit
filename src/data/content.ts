@@ -451,7 +451,7 @@ export const studentMembers: StudentMember[] = [
   { name: "Mahathi Reddy", year: "II", branch: "CSD", department: "Content", short: initials("Mahathi Reddy"), photo: "/team/2years/MAHATHI.jpg" },
   { name: "Nelli Manaswini", year: "II", branch: "CSE", department: "Graphic", short: initials("Nelli Manaswini"), photo: "/team/2years/Manaswini Nelli.jpg" },
   { name: "Aditya Narayana", year: "II", branch: "CSE", department: "Graphic", short: initials("Aditya Narayana"), photo: "/team/2years/Aditya Narayan.jpg" },
-  { name: "Chaitanya Sai", year: "II", branch: "CSE", department: "Resource", short: initials("Chaitanya Sai"), photo: "/team/2years/Chaitanya.jpg" },
+  { name: "Chaitanya Sai", year: "II", branch: "CSE", department: "Resource", short: initials("Chaitanya Sai"), photo: "/team/2years/Chaitanya.jpeg" },
   { name: "Gundevena Dharshini", year: "II", branch: "CSE", department: "Resource", short: initials("Gundevena Dharshini"), photo: "/team/2years/Dharshini Gundevena.jpg" },
   { name: "H Tarun Kumar Reddy", year: "II", branch: "CSE", department: "Content", short: initials("H Tarun Kumar Reddy"), photo: "/team/2years/Tarun.JPG" },
   { name: "Pooja Vanga", year: "II", branch: "CSE", department: "Resource", short: initials("Pooja Vanga"), photo: "/team/2years/Pooja.jpeg" },
@@ -588,10 +588,15 @@ export const upcomingEvents = [
   },
   {
     title: "Eloqvent 2026",
-    date: "Coming soon",
+    date: "13-14 November 2026",
     location: "MLR Institute of Technology, Hyderabad",
-    tagline: "Tech. Talk. Triumph.",
-    body: "A flagship communication and technology event featuring talks, presentations, and competitions that build leadership and professional skills.",
+    tagline: "Where bold voices meet bold ideas.",
+    body: "ELOQVENT 2K26 is a two-day multidisciplinary platform designed to unite communication, innovation, and entrepreneurship. It provides a collaborative space for participants to exchange creative thoughts, tackle challenges, and develop human-centered solutions to real-world problems.\n\nFrom expressing a perspective to uncovering the core of a problem, ELOQVENT equips participants with the communication and critical-thinking tools needed to make a tangible difference.",
+    registrationLink: "https://eloqvent.vercel.app/",
+    originalPrice: "359",
+    earlyBirdPrice: "299",
+    earlyBirdDeadline: "29 October 2026 at 11:59 PM IST",
+    offerTag: "Early Bird Offer live until 29 October 2026 at 11:59 PM IST",
   },
 ] as const;
 

@@ -48,9 +48,56 @@ export default function EventsPage() {
                     {event.date}
                   </p>
                   <p className="mt-1 text-sm text-stone">{event.location}</p>
-                  <p className="mt-4 flex-1 text-[15px] leading-relaxed text-stone">
+                  <p className="mt-4 flex-1 whitespace-pre-line text-[15px] leading-relaxed text-stone">
                     {event.body}
                   </p>
+
+                  {"earlyBirdPrice" in event && event.earlyBirdPrice ? (
+                    <div className="mt-5 rounded-2xl border border-forest/15 bg-white p-4 shadow-sm transition-all hover:border-forest/30 hover:shadow-md">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-forest-deep px-3 py-1 text-[11px] font-bold tracking-wider text-fog uppercase">
+                          <span className="h-1.5 w-1.5 rounded-full bg-leaf animate-ping" />
+                          Early Bird Offer Live
+                        </span>
+                        <span className="text-xs font-medium text-stone">
+                          Valid until <strong className="text-forest-deep">{event.earlyBirdDeadline}</strong>
+                        </span>
+                      </div>
+
+                      <div className="mt-3 flex flex-wrap items-baseline justify-between gap-2 border-t border-ink/8 pt-3">
+                        <div className="flex items-baseline gap-2.5">
+                          <span className="text-xs font-medium text-stone">Fee:</span>
+                          <span className="text-base font-semibold text-stone/60 line-through decoration-[#e31c23]/80 decoration-2">
+                            ₹{event.originalPrice}
+                          </span>
+                          <span className="font-display text-2xl font-black text-forest-deep">
+                            ₹{event.earlyBirdPrice}
+                          </span>
+                        </div>
+                        <span className="rounded-full bg-leaf/15 px-2.5 py-1 text-xs font-bold text-forest">
+                          Save ₹60 (Early Bird)
+                        </span>
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {"registrationLink" in event && event.registrationLink ? (
+                    <a
+                      href={event.registrationLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-forest px-5 py-2.5 text-sm font-semibold text-fog shadow-sm transition-all hover:bg-forest-deep hover:shadow-md hover:-translate-y-0.5"
+                    >
+                      <span>
+                        {"earlyBirdPrice" in event
+                          ? `Register now @ ₹${event.earlyBirdPrice}`
+                          : "Register now"}
+                      </span>
+                      <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                        →
+                      </span>
+                    </a>
+                  ) : null}
                 </article>
               </Reveal>
             ))}
